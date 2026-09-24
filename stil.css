@@ -1,0 +1,260 @@
+@font-face {
+  font-family: "Bricolage";
+  src: url("fonter/bricolage.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Bricolage";
+  src: url("fonter/bricolage-ext.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  --papir: #fbf7eb;
+  --gronn: #48603f;
+  --blekk: #22301f;
+  --gul: #f3c24a;
+  --linje: #d8d2bd;
+  --dempet: #55604f;
+  --maks: 72rem;
+  --kant: clamp(1rem, 4vw, 2.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--papir);
+  color: var(--blekk);
+  font-family: "Bricolage", system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  font-variation-settings: "opsz" 14;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; }
+a:focus-visible, .knapp:focus-visible {
+  outline: 3px solid var(--gul);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1, h2, h3 { line-height: 1.05; margin: 0; font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); margin-bottom: 1rem; }
+h3 { font-size: 1.375rem; letter-spacing: -0.01em; }
+p { margin: 0 0 1em; }
+
+.innhold { max-width: var(--maks); margin: 0 auto; padding: 0 var(--kant); }
+
+/* Topp */
+.topp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--maks);
+  margin: 0 auto;
+  padding: 1.25rem var(--kant);
+}
+.merke {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--gronn);
+}
+.merke img { width: 30px; height: auto; }
+.merke span {
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.topp nav { display: flex; gap: clamp(0.9rem, 2.5vw, 2rem); }
+.topp nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--blekk);
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.topp nav a:hover { border-bottom-color: var(--gronn); }
+
+/* Inngang */
+.inngang {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  max-width: var(--maks);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 4rem) var(--kant) clamp(3rem, 7vw, 6rem);
+}
+.inngang h1 {
+  font-size: clamp(3rem, 8.2vw, 6.5rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--gronn);
+  font-variation-settings: "opsz" 96;
+  margin-bottom: 1.5rem;
+}
+.ingress { font-size: clamp(1.15rem, 1.8vw, 1.35rem); max-width: 32em; }
+.kort-fakta {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.kort-fakta li {
+  border: 1.5px solid var(--gronn);
+  color: var(--gronn);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.knapp {
+  display: inline-block;
+  background: var(--gronn);
+  color: var(--papir);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+}
+.knapp:hover { background: var(--blekk); }
+.inngang-bilde { margin: 0; }
+.inngang-bilde img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 65%;
+  border-radius: 1.25rem;
+}
+
+/* Verksteder */
+.verksteder {
+  background: var(--gronn);
+  color: var(--papir);
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+.seksjon-ingress { font-size: 1.2rem; max-width: 34em; opacity: 0.92; margin-bottom: 2.5rem; }
+.liste { list-style: none; margin: 0; padding: 0; }
+.arrangement {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1.5rem clamp(1.5rem, 4vw, 3.5rem);
+  padding: 2rem 0;
+  border-top: 1px solid rgba(251, 247, 235, 0.28);
+}
+.arrangement:last-child { border-bottom: 1px solid rgba(251, 247, 235, 0.28); }
+.dato { display: flex; flex-direction: column; color: var(--gul); line-height: 0.85; }
+.dag {
+  font-size: clamp(4rem, 9vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  font-variation-settings: "opsz" 96;
+}
+.mnd { font-size: 1.5rem; font-weight: 600; margin-top: 0.35rem; }
+.detaljer h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 0.4rem; }
+.nar { font-weight: 600; margin-bottom: 0.75rem; }
+.nar::first-letter { text-transform: uppercase; }
+.tekst { max-width: 38em; margin: 0; opacity: 0.92; }
+.tom a, .verksteder noscript a { color: var(--gul); }
+
+/* Om */
+.om { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.om-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+.om-tekst p { max-width: 36em; }
+.om-mal {
+  border-left: 4px solid var(--gronn);
+  padding: 0.25rem 0 0.25rem 1.5rem;
+}
+.om-mal h3 { color: var(--gronn); margin-bottom: 0.9rem; }
+.om-mal ul { margin: 0; padding-left: 1.1rem; }
+.om-mal li { margin-bottom: 0.5rem; }
+.om-mal li::marker { color: var(--gronn); }
+
+/* Bilder */
+.bilder { padding: 0 0 clamp(3.5rem, 8vw, 6rem); }
+.mosaikk {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.mosaikk img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+/* Kontakt */
+.kontakt {
+  border-top: 1px solid var(--linje);
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+.kontakt p { max-width: 32em; }
+.epost {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: clamp(1.4rem, 3.4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--gronn);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+.skilt { margin: 0; }
+.skilt img { border-radius: 0.75rem; transform: rotate(-2deg); }
+
+/* Bunn */
+.bunn {
+  background: var(--blekk);
+  color: var(--papir);
+  padding: 2rem 0;
+  font-size: 0.95rem;
+}
+.bunn .innhold { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; }
+.bunn p { margin: 0; }
+
+/* Mobil */
+@media (max-width: 760px) {
+  .topp { flex-wrap: wrap; }
+  .merke span { font-size: 0.95rem; }
+  .inngang, .om-grid, .kontakt-grid { grid-template-columns: minmax(0, 1fr); }
+  .inngang-bilde img { aspect-ratio: 4 / 3; }
+  .arrangement { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; padding: 1.75rem 0; }
+  .dato { flex-direction: row; align-items: baseline; gap: 0.6rem; }
+  .dag { font-size: 3.5rem; }
+  .skilt img { transform: none; }
+  .mosaikk { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+  .mosaikk img:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+}
+@media (max-width: 420px) {
+  .topp nav { width: 100%; justify-content: space-between; }
+}
