@@ -229,6 +229,26 @@ p { margin: 0 0 1em; }
   text-underline-offset: 0.2em;
   overflow-wrap: anywhere;
 }
+.sosiale {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.sosiale a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem 0.55rem 0.8rem;
+  border: 2px solid var(--gronn);
+  border-radius: 999px;
+  color: var(--gronn);
+  font-weight: 700;
+  text-decoration: none;
+}
+.sosiale a:hover, .sosiale a:focus-visible { background: var(--gronn); color: var(--papir); }
 .skilt { margin: 0; }
 .skilt img { border-radius: 0.75rem; transform: rotate(-2deg); }
 
@@ -241,6 +261,9 @@ p { margin: 0 0 1em; }
 }
 .bunn .innhold { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; }
 .bunn p { margin: 0; }
+.bunn .bunn-sosiale { display: flex; gap: 1rem; margin-left: auto; }
+.bunn-sosiale a { color: var(--papir); display: inline-flex; }
+.bunn-sosiale a:hover, .bunn-sosiale a:focus-visible { color: var(--gul); }
 
 /* Mobil */
 @media (max-width: 760px) {
