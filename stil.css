@@ -219,10 +219,47 @@ p { margin: 0 0 1em; }
   align-items: center;
 }
 .kontakt p { max-width: 32em; }
+.kontakt-grid { align-items: start; }
+.skjema { display: grid; gap: 0.35rem; margin-top: 1.5rem; max-width: 32rem; }
+.skjema label { font-weight: 600; margin-top: 0.6rem; }
+.skjema input, .skjema textarea {
+  font: inherit;
+  color: var(--blekk);
+  background: #fff;
+  border: 2px solid var(--linje);
+  border-radius: 0.6rem;
+  padding: 0.65rem 0.8rem;
+  width: 100%;
+}
+.skjema textarea { resize: vertical; min-height: 8rem; }
+.skjema input:focus, .skjema textarea:focus { outline: none; border-color: var(--gronn); }
+.send {
+  justify-self: start;
+  margin-top: 1rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--papir);
+  background: var(--gronn);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 2.25rem;
+  cursor: pointer;
+}
+.send:hover { background: var(--blekk); }
+.send:focus-visible { outline: 3px solid var(--gul); outline-offset: 3px; }
+.send:disabled { opacity: 0.6; cursor: wait; }
+.skjema .personvern { font-size: 0.9rem; color: var(--dempet); margin: 0.25rem 0 0; }
+.skjema-svar { margin: 0.5rem 0 0; font-weight: 600; }
+.skjema-svar:empty { display: none; }
+.skjema-svar.ok { color: var(--gronn); }
+.skjema-svar.feil { color: #9b2c1f; }
+.skjult { position: absolute; left: -9999px; }
+.kontakt-side .skilt { margin-bottom: 2rem; }
+.eller { margin: 0; color: var(--dempet); }
 .epost {
   display: inline-block;
-  margin-top: 0.5rem;
-  font-size: clamp(1.4rem, 3.4vw, 2.4rem);
+  margin-top: 0.25rem;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
   font-weight: 700;
   color: var(--gronn);
   text-decoration-thickness: 3px;
