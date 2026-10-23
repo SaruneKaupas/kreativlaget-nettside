@@ -203,6 +203,21 @@
       li.querySelector("h3").textContent = a.tittel;
       li.querySelector(".nar").textContent = dager[a._d.getDay()] + " kl. " + a.tid + ", " + a.sted;
       li.querySelector(".tekst").textContent = a.tekst;
+      if (a.plakat) {
+        li.classList.add("med-plakat");
+        var lenke = document.createElement("a");
+        lenke.className = "plakat";
+        lenke.href = a.plakat;
+        lenke.target = "_blank";
+        lenke.rel = "noopener";
+        var bilde = document.createElement("img");
+        bilde.src = a.plakat;
+        bilde.width = 1100; bilde.height = 1555;
+        bilde.loading = "lazy";
+        bilde.alt = "Plakat: " + a.tittel;
+        lenke.appendChild(bilde);
+        li.appendChild(lenke);
+      }
       liste.appendChild(li);
     });
   })();
