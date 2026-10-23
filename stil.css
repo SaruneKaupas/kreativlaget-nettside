@@ -171,7 +171,7 @@ p { margin: 0 0 1em; }
 .detaljer h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 0.4rem; }
 .nar { font-weight: 600; margin-bottom: 0.75rem; }
 .nar::first-letter { text-transform: uppercase; }
-.tekst { max-width: 38em; margin: 0; opacity: 0.92; }
+.tekst { max-width: 38em; margin: 0; opacity: 0.92; white-space: pre-line; }
 .tom a, .verksteder noscript a { color: var(--gul); }
 
 /* Om */

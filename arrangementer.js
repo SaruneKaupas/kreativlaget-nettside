@@ -8,7 +8,7 @@ const ARRANGEMENTER = [
     tid: "16.00–19.00",
     tittel: "Halloweenverksted",
     sted: "Ellingsrud torg, prosjektlokalet",
-    tekst: "Kl. 16.00–18.00 skjærer vi ut gresskar på gresskarverkstedet med Ellingsrudåsen frivilligsentral. Barn under 10 år må ha med voksen. Kl. 17.00–19.00 lager vi spøkelser av papp, masker og edderkopper av høstblader, kastanjer og annet vi finner i naturen, sammen med Forandringshuset. Det dere lager, tar dere med hjem. Alle materialer er inkludert."
+    tekst: "Kl. 16.00–18.00 skjærer vi ut gresskar på gresskarverkstedet med Ellingsrudåsen frivilligsentral. Barn under 10 år må ha med voksen.\n\nKl. 17.00–19.00 lager vi spøkelser av papp, masker og edderkopper av høstblader, kastanjer og annet vi finner i naturen, sammen med Forandringshuset.\n\nDet dere lager, tar dere med hjem. Alle materialer er inkludert."
   },
   {
     dato: "2026-11-06",
