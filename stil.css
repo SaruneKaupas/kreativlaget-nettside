@@ -55,7 +55,17 @@ p { margin: 0 0 1em; }
 
 .innhold { max-width: var(--maks); margin: 0 auto; padding: 0 var(--kant); }
 
-/* Topp */
+/* Topp: menyen blir stående øverst når man blar */
+.topp-ramme {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 247, 235, 0.94);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--linje);
+}
+section[id] { scroll-margin-top: 5rem; }
 .topp {
   display: flex;
   align-items: center;
@@ -63,7 +73,7 @@ p { margin: 0 0 1em; }
   gap: 1rem;
   max-width: var(--maks);
   margin: 0 auto;
-  padding: 1.25rem var(--kant);
+  padding: 0.75rem var(--kant);
 }
 .merke {
   display: flex;
@@ -79,7 +89,7 @@ p { margin: 0 0 1em; }
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
-.topp nav { display: flex; gap: clamp(0.9rem, 2.5vw, 2rem); }
+.topp nav { display: flex; align-items: center; gap: clamp(0.9rem, 2.5vw, 2rem); }
 .topp nav a {
   text-decoration: none;
   font-weight: 500;
@@ -88,6 +98,15 @@ p { margin: 0 0 1em; }
   border-bottom: 2px solid transparent;
 }
 .topp nav a:hover { border-bottom-color: var(--gronn); }
+.topp nav a.meny-kontakt {
+  background: var(--gronn);
+  color: var(--papir);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-weight: 600;
+}
+.topp nav a.meny-kontakt:hover { background: var(--blekk); }
 
 /* Inngang */
 .inngang {
@@ -135,13 +154,24 @@ p { margin: 0 0 1em; }
   border-radius: 999px;
 }
 .knapp:hover { background: var(--blekk); }
-.inngang-bilde { margin: 0; }
-.inngang-bilde img {
+.inngang-bilde { margin: 0 0 0 2.5rem; position: relative; }
+.inngang-bilde .hoved {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center 65%;
   border-radius: 1.25rem;
+}
+.inngang-bilde .lapp {
+  position: absolute;
+  left: -2.5rem;
+  bottom: -2rem;
+  width: 44%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 0.45rem solid var(--papir);
+  border-radius: 0.9rem;
+  transform: rotate(-4deg);
+  box-shadow: 0 10px 24px rgba(34, 48, 31, 0.22);
 }
 
 /* Verksteder */
@@ -178,6 +208,59 @@ p { margin: 0 0 1em; }
 .plakat:hover { transform: rotate(-1deg) scale(1.02); }
 .plakat img { width: 100%; }
 
+/* Tidligere verksteder */
+.tidligere { padding: clamp(3.5rem, 8vw, 6rem) 0 0; }
+.tidligere[hidden] { display: none; }
+.arkiv-ingress { font-size: 1.2rem; margin-bottom: 0; }
+.arkiv { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+.arkiv-post { padding: 2rem 0 2.5rem; border-top: 1px solid var(--linje); }
+.arkiv-post:last-child { padding-bottom: 0; }
+.arkiv-meta { margin: 0 0 0.35rem; font-weight: 600; color: var(--gronn); }
+.arkiv-post h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 0.6rem; }
+.arkiv-tekst { max-width: 38em; }
+.arkiv-bilder {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.arkiv-bilde { display: block; border-radius: 0.6rem; overflow: hidden; }
+.arkiv-bilde img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.25s;
+}
+.arkiv-bilde:hover img { transform: scale(1.04); }
+.arkiv-kreditt { margin: 0.9rem 0 0; font-size: 0.95rem; max-width: 40em; }
+.arkiv-foto { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--dempet); }
+.storbilde {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: min(92vw, 1100px);
+  max-height: 92vh;
+  overflow: visible;
+}
+.storbilde::backdrop { background: rgba(34, 48, 31, 0.88); }
+.storbilde img { max-width: min(92vw, 1100px); max-height: 88vh; width: auto; border-radius: 0.5rem; cursor: zoom-out; }
+.storbilde .lukk {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.6rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--papir);
+  color: var(--blekk);
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.storbilde .lukk:focus-visible { outline: 3px solid var(--gul); outline-offset: 2px; }
+
 /* Om */
 .om { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 .om-grid > * { max-width: 44rem; }
@@ -188,20 +271,22 @@ p { margin: 0 0 1em; }
 .om-mal li { margin-bottom: 0.5rem; }
 .om-mal li::marker { color: var(--gronn); }
 
-/* Bilder */
-.bilder { padding: 0 0 clamp(3.5rem, 8vw, 6rem); }
-.mosaikk {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
+/* Samarbeidspartnere */
+.partnere { border-top: 1px solid var(--linje); padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.partnere h3 { font-size: 1.05rem; color: var(--gronn); margin: 2rem 0 1rem; }
+.logoer {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 3rem;
 }
-.mosaikk img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 0.75rem;
-}
+.logoer img { height: 4.5rem; width: auto; }
+.logoer .rund img { height: 6.5rem; }
+.logoer .tekstlogo { font-weight: 700; font-size: 1.15rem; max-width: 12rem; line-height: 1.2; }
+.partner-merknad { margin: 2rem 0 0; max-width: 40em; font-size: 0.95rem; color: var(--dempet); }
 
 /* Kontakt */
 .kontakt {
@@ -300,18 +385,25 @@ p { margin: 0 0 1em; }
 
 /* Mobil */
 @media (max-width: 760px) {
-  .topp { flex-wrap: wrap; }
+  .topp { padding: 0.6rem var(--kant); }
   .merke span { font-size: 0.95rem; }
   .inngang, .kontakt-grid { grid-template-columns: minmax(0, 1fr); }
-  .inngang-bilde img { aspect-ratio: 4 / 3; }
+  .inngang-bilde { margin: 0 0 1.5rem; }
+  .inngang-bilde .hoved { aspect-ratio: 4 / 3; object-position: center 35%; }
+  .inngang-bilde .lapp { left: auto; right: -0.25rem; bottom: -1.5rem; width: 36%; }
   .arrangement, .arrangement.med-plakat { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; padding: 1.75rem 0; }
   .plakat { max-width: 16rem; margin-top: 0.5rem; }
   .dato { flex-direction: row; align-items: baseline; gap: 0.6rem; }
   .dag { font-size: 3.5rem; }
   .skilt img { transform: none; }
-  .mosaikk { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
-  .mosaikk img:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+  .logoer { gap: 1.25rem 2rem; }
+  .arkiv-bilder { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  .logoer img { height: 3.25rem; }
+  .logoer .rund img { height: 4.75rem; }
 }
-@media (max-width: 420px) {
-  .topp nav { width: 100%; justify-content: space-between; }
+@media (max-width: 560px) {
+  .merke span { display: none; }
+  .topp nav { gap: 0.9rem; }
+  .topp nav a { font-size: 0.95rem; }
+  .topp nav a.meny-kontakt { padding: 0.4rem 0.85rem; }
 }

@@ -7,7 +7,7 @@
   <meta name="description" content="Kreativlaget lager åpne og gratis kreative verksteder i Oslo for barn, voksne og familier. Vi skaper sammen med gjenbruk og naturmaterialer.">
   <meta property="og:title" content="Kreativlaget">
   <meta property="og:description" content="Åpne, gratis og inkluderende kreative møteplasser for alle.">
-  <meta property="og:image" content="https://kreativlaget.no/bilder/langbord.jpg">
+  <meta property="og:image" content="https://kreativlaget.no/bilder/deling.jpg">
   <meta property="og:url" content="https://kreativlaget.no/">
   <meta property="og:locale" content="nb_NO">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -16,6 +16,7 @@
 </head>
 <body>
 
+<div class="topp-ramme">
 <header class="topp">
   <a class="merke" href="#" aria-label="Kreativlaget, til toppen">
     <img src="bilder/k.png" alt="" width="34" height="48">
@@ -23,10 +24,12 @@
   </a>
   <nav aria-label="Hovedmeny">
     <a href="#verksteder">Verksteder</a>
+    <a href="#arkiv">Arkiv</a>
     <a href="#om-oss">Om oss</a>
-    <a href="#kontakt">Kontakt</a>
+    <a class="meny-kontakt" href="#kontakt">Kontakt</a>
   </nav>
 </header>
+</div>
 
 <main>
 
@@ -42,8 +45,10 @@
       <a class="knapp" href="#verksteder">Se kommende verksteder</a>
     </div>
     <figure class="inngang-bilde">
-      <img src="bilder/langbord.jpg" width="1350" height="1800"
-           alt="Et langt bord med hvite duker utendørs der barn og voksne maler sammen">
+      <img class="hoved" src="bilder/forside-goutami.jpg" width="1080" height="1350"
+           alt="Goutami fra Kreativlaget holder opp to diya-lamper av papptallerkener på lysfesten">
+      <img class="lapp" src="bilder/forside-masker.jpg" width="800" height="800"
+           alt="Masker av papptallerkener fra halloweenverkstedet">
     </figure>
   </section>
 
@@ -53,6 +58,14 @@
       <p class="seksjon-ingress">Alle er velkomne, og det er gratis å delta.</p>
       <ol class="liste" id="arrangement-liste"></ol>
       <noscript><p>Skriv til <a href="mailto:kreativlaget@gmail.com">kreativlaget@gmail.com</a> for å høre om kommende verksteder.</p></noscript>
+    </div>
+  </section>
+
+  <section id="arkiv" class="tidligere" aria-labelledby="arkiv-tittel" hidden>
+    <div class="innhold">
+      <h2 id="arkiv-tittel">Arkiv</h2>
+      <p class="arkiv-ingress">Verksteder vi har holdt.</p>
+      <ol class="arkiv" id="arkiv-liste"></ol>
     </div>
   </section>
 
@@ -78,20 +91,22 @@
     </div>
   </section>
 
-  <section class="bilder" aria-labelledby="bilder-tittel">
+  <section class="partnere" aria-labelledby="partnere-tittel">
     <div class="innhold">
-      <h2 id="bilder-tittel">Fra verkstedene</h2>
-      <div class="mosaikk">
-        <img src="bilder/naturmaterialer.jpg" width="1050" height="1400" loading="lazy" alt="Blomster, grener, saks og hammer på en hvit duk">
-        <img src="bilder/maleri-oransje.jpg" width="1050" height="1400" loading="lazy" alt="Et oransje og grønt maleri ved siden av høstblader og en palett">
-        <img src="bilder/drivhuset.jpg" width="1050" height="1400" loading="lazy" alt="Deltakere maler ved et langt bord i et drivhus">
-        <img src="bilder/bordet.jpg" width="1050" height="1400" loading="lazy" alt="Familier maler sammen ved et langt bord">
-        <img src="bilder/lindeberg.jpg" width="964" height="1286" loading="lazy" alt="Malerier og fargeblyanter på et rundt bord i Lindeberglokalet">
-        <img src="bilder/utstilling.jpg" width="1400" height="1050" loading="lazy" alt="Malerier fra verkstedene henger i et vindu">
-        <img src="bilder/staffeli.jpg" width="1050" height="1400" loading="lazy" alt="Et lerret med oransje og blå maling på et staffeli">
-        <img src="bilder/gruppe.jpg" width="788" height="1400" loading="lazy" alt="En gruppe deltakere samlet rundt et malebord utendørs">
-        <img src="bilder/bladmaling.jpg" width="1050" height="1400" loading="lazy" alt="En deltaker maler et grønt blad">
-      </div>
+      <h2 id="partnere-tittel">Samarbeidspartnere og støttespillere</h2>
+      <h3>Vi samarbeider med</h3>
+      <ul class="logoer">
+        <li><img src="bilder/partnere/ellingsrud-velforening.png" width="480" height="142" loading="lazy" alt="Ellingsrud velforening"></li>
+        <li class="rund"><img src="bilder/partnere/ellingsrudasen-frivilligsentral.png" width="323" height="200" loading="lazy" alt="Ellingsrudåsen frivilligsentral"></li>
+        <li><img src="bilder/partnere/forandringshuset.svg" width="300" height="75" loading="lazy" alt="Forandringshuset"></li>
+      </ul>
+      <h3>Støttet av</h3>
+      <ul class="logoer">
+        <li class="rund"><img src="bilder/partnere/sammen-for-ellingsrud.png" width="156" height="200" loading="lazy" alt="Sammen for Ellingsrud"></li>
+        <li><img src="bilder/partnere/anthonstiftelsen.png" width="480" height="172" loading="lazy" alt="Anthonstiftelsen"></li>
+        <li class="tekstlogo">Oslo kommune, Kulturetaten</li>
+      </ul>
+      <p class="partner-merknad">Verkstedene på Ellingsrud høsten 2026 er støttet av Sammen for Ellingsrud med midler fra Anthonstiftelsen. K-VINNER – KUNST VINNER er støttet av Oslo kommune, Kulturetaten.</p>
     </div>
   </section>
 
@@ -142,6 +157,17 @@
   </div>
 </footer>
 
+<dialog id="storbilde" class="storbilde" aria-label="Bilde i stort format">
+  <form method="dialog"><button class="lukk" aria-label="Lukk">×</button></form>
+  <img src="" alt="">
+</dialog>
+<script>
+  (function () {
+    var vindu = document.getElementById("storbilde");
+    vindu.addEventListener("click", function (e) { if (e.target === vindu || e.target.tagName === "IMG") vindu.close(); });
+  })();
+</script>
+
 <script src="arrangementer.js"></script>
 <script>
   (function () {
@@ -177,14 +203,87 @@
     var dager = ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"];
     var idag = new Date(); idag.setHours(0, 0, 0, 0);
 
-    var kommende = ARRANGEMENTER
-      .map(function (a) { var d = a.dato.split("-"); a._d = new Date(+d[0], +d[1] - 1, +d[2]); return a; })
+    var alle = ARRANGEMENTER
+      .map(function (a) { var d = a.dato.split("-"); a._d = new Date(+d[0], +d[1] - 1, +d[2]); return a; });
+    var kommende = alle
       .filter(function (a) { return a._d >= idag; })
       .sort(function (x, y) { return x._d - y._d; });
+    var tidligere = alle
+      .filter(function (a) { return a._d < idag; })
+      .sort(function (x, y) { return y._d - x._d; });
+
+    visArkiv(tidligere);
 
     if (!kommende.length) {
       liste.outerHTML = '<p class="tom">Nye verksteder kommer snart. Skriv til <a href="mailto:kreativlaget@gmail.com">kreativlaget@gmail.com</a> for å høre mer.</p>';
       return;
+    }
+
+    function visArkiv(liste) {
+      if (!liste.length) return;
+      var seksjon = document.getElementById("arkiv");
+      var ol = document.getElementById("arkiv-liste");
+      var maneder = ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"];
+      liste.forEach(function (a) {
+        var li = document.createElement("li");
+        li.className = "arkiv-post";
+        var meta = document.createElement("p");
+        meta.className = "arkiv-meta";
+        var tid = document.createElement("time");
+        tid.dateTime = a.dato;
+        tid.textContent = a.periode || (a._d.getDate() + ". " + maneder[a._d.getMonth()] + " " + a._d.getFullYear());
+        meta.appendChild(tid);
+        meta.appendChild(document.createTextNode(" · " + a.sted));
+        var h3 = document.createElement("h3");
+        h3.textContent = a.tittel;
+        li.appendChild(meta);
+        li.appendChild(h3);
+        if (a.etterpaa) {
+          var p = document.createElement("p");
+          p.className = "arkiv-tekst";
+          p.textContent = a.etterpaa;
+          li.appendChild(p);
+        }
+        if (a.bilder && a.bilder.length) {
+          var rutenett = document.createElement("div");
+          rutenett.className = "arkiv-bilder";
+          a.bilder.forEach(function (b) {
+            var lenke = document.createElement("a");
+            lenke.href = b.fil;
+            lenke.className = "arkiv-bilde";
+            var img = document.createElement("img");
+            img.src = b.fil;
+            img.alt = b.alt || "";
+            img.loading = "lazy";
+            if (b.pos) img.style.objectPosition = b.pos;
+            lenke.appendChild(img);
+            lenke.addEventListener("click", function (e) {
+              var vindu = document.getElementById("storbilde");
+              if (!vindu || !vindu.showModal) return;
+              e.preventDefault();
+              vindu.querySelector("img").src = b.fil;
+              vindu.querySelector("img").alt = b.alt || "";
+              vindu.showModal();
+            });
+            rutenett.appendChild(lenke);
+          });
+          li.appendChild(rutenett);
+        }
+        if (a.kreditt) {
+          var k = document.createElement("p");
+          k.className = "arkiv-kreditt";
+          k.textContent = a.kreditt;
+          li.appendChild(k);
+        }
+        if (a.foto) {
+          var f = document.createElement("p");
+          f.className = "arkiv-foto";
+          f.textContent = "Foto: " + a.foto;
+          li.appendChild(f);
+        }
+        ol.appendChild(li);
+      });
+      seksjon.hidden = false;
     }
 
     kommende.forEach(function (a) {
