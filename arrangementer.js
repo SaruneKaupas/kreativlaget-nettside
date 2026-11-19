@@ -81,14 +81,16 @@ const ARRANGEMENTER = [
     tittel: "Juleverksted – pynt til treet og julekort",
     sted: "Ellingsrud torg, prosjektlokalet",
     tekst: "Kom som du er. Hvert juletre blir unikt.\n\nUnder den tradisjonelle julegrantenningen på Ellingsrud arrangerer Kreativlaget et gratis juleverksted i samarbeid med Forandringshuset.\n\nVi lager små juletrær, pynt til treet og egne julekort. Du trenger ingen forkunnskaper. Det du lager, tar du med hjem. Alle materialer er inkludert.",
+    plakat: "bilder/plakater/juleverksted-pynt-2026.jpg",
     kreditt: "I samarbeid med Forandringshuset. Støttet av Sammen for Ellingsrud med midler fra Anthonstiftelsen."
   },
   {
-    dato: "2026-12-03",
+    dato: "2026-12-04",
     tid: "16.00–18.00",
     tittel: "Juleverksted – lag din egen krans",
     sted: "Ellingsrud torg, prosjektlokalet",
     tekst: "Vi binder kranser av grener, kongler og bær fra skogen. Du trenger ingen forkunnskaper. Kom som du er, ingen krans blir lik. Kransen du lager, tar du med hjem. Alle materialer er inkludert.",
+    plakat: "bilder/plakater/juleverksted-krans-2026.jpg",
     kreditt: "I samarbeid med Forandringshuset. Støttet av Sammen for Ellingsrud med midler fra Anthonstiftelsen."
   }
 ];
